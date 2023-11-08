@@ -1,8 +1,0 @@
-INFO: Platform: linux
-INFO: Version Info: v0.3.0
-DEBUG: Log Path: cp.log
-DEBUG: command: ['python', '/home/atlas/Documents/Programme/Python/ProjetNSI/Game/main.py']
-DEBUG: file: None
-DEBUG: pause: True
-DEBUG: repl: python
-DEBUG: args: ['/home/atlas/Documents/Programme/Python/ProjetNSI/Game/main.py']
