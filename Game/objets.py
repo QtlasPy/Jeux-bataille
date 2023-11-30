@@ -1,4 +1,5 @@
 from data import asset
+import random
 
 class Carte:
     def __init__(self, v, f):
@@ -7,12 +8,13 @@ class Carte:
 
     def affiche(self, screen, x, y):
         carte_asset = asset
-        screen.blit(carte_utf[self.f][self.v], (x,y))
+        screen.blit(carte_asset[self.f][self.v], (x,y))
 
 
 class JeuCartes:
     def __init__(self):
-        self.jeux = [Carte(v, f) for f in  ("pique", 'coeur', "carreau", "trefle") for v in range(0, 13)]
+        #self.jeux = [Carte(v, f) for f in  ("pique", 'coeur', "carreau", "trefle") for v in range(0, 13)]
+        self.jeux = [Carte(11, 'trefle'), Carte(12, 'trefle'),  Carte(3, 'trefle'), Carte(3, 'trefle')]
 
     def shuffle(self):
         random.shuffle(self.jeux)
@@ -28,6 +30,10 @@ class Paquet:
 
     def affiche(self, screen):
         screen.blit(self.img, self.rect)
+
+    def taille(self):
+        return len(self.paquet)
+
 
 
 class Player:
