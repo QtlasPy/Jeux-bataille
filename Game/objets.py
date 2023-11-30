@@ -1,17 +1,13 @@
-import random
+from data import asset
 
 class Carte:
     def __init__(self, v, f):
         self.v = v
         self.f = f
 
-    def __str__(self):
-        carte_utf = {'pique' : [chr(i) for i in range(127137, 127151) if i != 127148],
-                    'coeur' :  [chr(i) for i in range(127153, 127167) if i != 127164],
-                    'carreau' : [chr(i) for i in range(127169, 127183) if i != 127180],
-                    'trefle' : [chr(i) for i in range(127185, 127199) if i != 127196]
-                    }
-        return carte_utf[self.f][self.v]
+    def affiche(self, screen, x, y):
+        carte_asset = asset
+        screen.blit(carte_utf[self.f][self.v], (x,y))
 
 
 class JeuCartes:
@@ -21,22 +17,17 @@ class JeuCartes:
     def shuffle(self):
         random.shuffle(self.jeux)
 
-    def __str__(self):
-        affiche = ""
-        for j in range(0, 4):
-            for carte in range(13*j, 13*j+13):
-                    affiche += self.jeux[carte].__str__() + ' '
-            affiche += '\n'
-
-
-        return affiche
-
 class Paquet:
-    def __init__(self, cartes):
+    def __init__(self, cartes, pos):
         self.paquet = cartes
+        self.img = asset['dos_carte']
+        self.rect = self.img.get_rect(topleft=pos)
 
     def ajouter(self, x):
         self.paquet.insert(0, x)
+
+    def affiche(self, screen):
+        screen.blit(self.img, self.rect)
 
 
 class Player:
@@ -47,9 +38,3 @@ class Player:
     def tirer(self):
         carteTirer = self.paquet.paquet.pop(len(self.paquet.paquet) - 1)
         return carteTirer
-
-    def __str__(self):
-        affiche = self.nom  + ' : '
-        for carte in self.paquet.paquet:
-            affiche += carte.__str__() + ' '
-        return affiche
