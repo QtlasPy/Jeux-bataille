@@ -46,8 +46,8 @@ class Game:
             self.game = self.Menu.lancer()
         elif self.game:
             if not self.inGame:
-                #self.jeuCartes.shuffle()
-                paquet1, paquet2 = Paquet(self.jeuCartes.jeux[:2], (120, 450)), Paquet(self.jeuCartes.jeux[-2:], (1030, 50))
+                self.jeuCartes.shuffle()
+                paquet1, paquet2 = Paquet(self.jeuCartes.jeux[:26], (120, 450)), Paquet(self.jeuCartes.jeux[-26:], (1030, 50))
                 self.playerEnJeu = (Player(self.Menu.names[0], paquet1), Player(self.Menu.names[1], paquet2))
                 self.inGame = True
             else:
