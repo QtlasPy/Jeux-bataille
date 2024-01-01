@@ -18,7 +18,7 @@
 
 <p>Grâce à cette analyse on a pu travailler et diviser le projet en plusieurs classes dont chaque personne du groupe a été attribuée :</p>
 
-<li> Julien : Partie </li>
+<li> Julien : Partie/Graphique </li>
 <li> Timéo : JeuCartes </li>
 <li> Laura / Lana : Joueur et Cartes </li>
 <li> Charles : Paquet </li>
@@ -48,10 +48,16 @@
 <p>La classe <code>Game</code> Organise le déroulement du jeu. Elle initialise le jeu en créant un jeu de cartes, distribue les cartes aux joueurs, gère les batailles, détermine le gagnant de la partie et gère toute la partie graphique.</p>
 
 <h3> Graphique : </h3>
-<p>A l'aide de la librairie pygame nous avons pu modéliser le jeu en graphique à l'aide d'images de carte. </p>
+<p>A l'aide de la librairie <a href=https://www.pygame.org/news>pygame</a> nous avons pu modéliser le jeu en graphique à l'aide d'images de carte. </p>
 
-<h3> Travaille en equipe : </h3>
-<p> Ce projet nous a permis d'utiliser un gestionnaire de sauvegarde tel que git grâce à sa méthode de branche et de mise en commun. </p>
+<h3> Travaille en equipe et deroulement du projet : </h3>
+<ul>
+  <li> <p><strong>1er Jeudi </strong>: Le premier jeudi nous a permit de poser le problemme et le diviser en plusieurs petits problemmes que nous avons pue modeliser ensemble avec la programmation oriente objet, et se diviser donc les taches comme enoncer precedemment.</p> </li>
+  <li> <p> <strong>2eme Jeudi</strong> : Lors du deuxiemme Jeudi nous avons commencer a parler de code en python et avons reflechie a differentes maniere d'implementer la modelisation en python, et avons finie de structurer le jeu.</p></li>
+  <li> <p> <strong>3eme Jeudi </strong> : Pour le 3 eme regroupement nous avons mit en communs nos differents code et avons ajuster certaines lines de codes pour la liaisons entres les differentes Class et avons debuter une partie graphique.</p> </li>
+  <li> <p> <strong>4 eme Jeudi </strong> : Lors de l'avant dernier Jeudi nous avions finaliser le code et commencer a parler du rapport et de la presentation orale du projet.
+  <li> <p> <strong> Dernier Jeudi </strong> : Presentation a l'orale et remit du rapport ecris.
+</ul>
 
 <h2> Conclusion :</h2>
 
@@ -60,4 +66,5 @@
 
 <h2> Lien vers le Code :</h2>
 
-<p> Le code complet du projet est disponible sur notre <a href=https://github.com/QtlasPy/Jeux-bataille> dépôt GitHub </a>.</p>
+<p> Le code complet du projet est disponible sur notre <a href=https://github.com/QtlasPy/Jeux-bataille> dépôt GitHub </a>.</br>
+<strong> Pygame requis : <a href=https://pypi.org/project/pygame/>Installer pygame </a> </p>
