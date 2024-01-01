@@ -4,12 +4,15 @@ pygame.init()
 screen = pygame.display.set_mode((1, 1))
 
 def get_image(idle, frame, taille, hauteur, verti):
+        """
+        Recupere une image contenant une liste de cartes et renvoie une image d'une seule carte.
+        """
         image = pygame.Surface((taille, hauteur)).convert_alpha()
         image.blit(idle, (0, 0), ((frame * taille), 0, taille, hauteur))
         image = pygame.transform.flip(image, verti, False)
         image = pygame.transform.scale(image, (60, 100))
-        image.set_colorkey([0, 0, 0])
-        return image
+        image.set_colorkey([0, 0, 0])  #Fond transparent.
+        return image  
 
 famille_list =  ("coeur", "carreau", "trefle", "pique")
 famille_img = [pygame.image.load(f"Assets/Carte/{i}.png").convert_alpha() for i in famille_list]
