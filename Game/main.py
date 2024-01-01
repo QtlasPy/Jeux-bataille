@@ -6,36 +6,44 @@ pygame.init()
 
 class Game:
     def __init__(self):
+        #Games variables
         self.screen = pygame.display.set_mode((1200, 600))
-        self.running, self.game, self.inGame, self.end_round, self.bataille = True, False, False, False, False
-        self.clock = pygame.time.Clock()
+        self.running, self.game, self.inGame, self.end_round, self.bataille = True, False, False, False, False  #Differents etats du jeux
+        self.clock = pygame.time.Clock()  
         self.round_end_time = pygame.time.get_ticks()
 
-        self.Menu = Menu()
-        self.jeuCartes = JeuCartes()
-
-        self.carteEnJeu = []
-        liste = [x for x in range(26) for _ in range(2)]
-        self.pos_carte = [pygame.Rect(530 + 80 * liste[i], 330, 58, 98) if i %2 == 0 else pygame.Rect(530 - 80 * liste[i], 170, 58, 98) for i in range(len(liste))]
-
+        #Differents etats dans une manche
         self.nbTour, self.playerTour, self.playerWin = 0, 0, -1
         self.batailleIndex = 0
 
+        #Charger les objets
+        self.Menu = Menu()
+        self.jeuCartes = JeuCartes()
+        self.carteEnJeu = []
+        
+        #Gerer les differentes positions des cartes, pour faire en sorte quelle soit cote a cote horizontalement lors d'une bataille.
+        liste = [x for x in range(26) for _ in range(2)]
+        self.pos_carte = [pygame.Rect(530 + 80 * liste[i], 330, 58, 98) if i %2 == 0 else pygame.Rect(530 - 80 * liste[i], 170, 58, 98) for i in range(len(liste))]
+
+        
         self.win = False
 
     def event(self):
+        #Gestion des evenements
         time = pygame.time.get_ticks()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
 
-            elif event.type == pygame.KEYDOWN and not self.game:
-                    self.Menu.getPLayerName(event)
-
-            if self.end_round and time - self.round_end_time >= 2300:
+            elif event.type == pygame.KEYDOWN and not self.game:  #Si l'utilisateur entre une touche lors du menu.
+                    self.Menu.getPLayerName(event)   
+                
+            #Gestion de la fin d'une manche.
+            if self.end_round and time - self.round_end_time >= 2300: 
                 self.playerWin, self.playerTour=-1, 0
                 self.end_round  = False
                 self.round_end_time = time
+                #si il n'y pas bataille remettre les cartes en jeux a 0.
                 if not self.bataille:
                     self.carteEnJeu = []
                     self.batailleIndex = 0
@@ -46,7 +54,7 @@ class Game:
             self.game = self.Menu.lancer()
         elif self.game:
             if not self.inGame:
-                #self.jeuCartes.shuffle()
+                self.jeuCartes.shuffle()
                 paquet1, paquet2 = Paquet(self.jeuCartes.jeux[:2], (120, 450)), Paquet(self.jeuCartes.jeux[-2:], (1030, 50))
                 self.playerEnJeu = (Player(self.Menu.names[0], paquet1), Player(self.Menu.names[1], paquet2))
                 self.inGame = True
