@@ -15,5 +15,3 @@ famille_list =  ("coeur", "carreau", "trefle", "pique")
 famille_img = [pygame.image.load(f"Assets/Carte/{i}.png").convert_alpha() for i in famille_list]
 asset = {famille: [get_image(famille_img, l, 108, 133, False) for l in range(0, 13)] for famille, famille_img in zip(famille_list, famille_img)}
 asset['dos_carte'] = pygame.transform.scale(pygame.image.load(f"Assets/Carte/dos.png").convert_alpha(), (60, 100))
-
-print(1%2)
