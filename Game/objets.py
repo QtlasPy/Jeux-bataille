@@ -13,8 +13,7 @@ class Carte:
 
 class JeuCartes:
     def __init__(self):
-        #self.jeux = [Carte(v, f) for f in  ("pique", 'coeur', "carreau", "trefle") for v in range(0, 13)]
-        self.jeux = [Carte(11, 'trefle'), Carte(12, 'trefle'),  Carte(3, 'trefle'), Carte(3, 'trefle')]
+        self.jeux = [Carte(v, f) for f in  ("pique", 'coeur', "carreau", "trefle") for v in range(0, 13)]
 
     def shuffle(self):
         random.shuffle(self.jeux)
